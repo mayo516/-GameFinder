@@ -6,9 +6,9 @@ export default function Question() {
   return (
     <>
       <section>
-        <Button text="게임 분류 선택" btnType="title" />
-        <Button text="고티수상작" btnType="choice" />
-        <Button text="게임 전체 중에서" btnType="choice" />
+        <Button text="왕바보구하기" btnType="title" />
+        <Button text="김뿡냐바보" btnType="choice" />
+        <Button text="코코바보" btnType="choice" />
       </section>
     </>
   );
