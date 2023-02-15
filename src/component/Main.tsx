@@ -13,12 +13,19 @@ export default function Main() {
         setQuestionList(result);
       });
   }, []);
+
   return (
     <>
       {QuestionList.map((res) => {
-        return <Button text={res["title"]} btnType="title" />;
+        console.log(res);
+        return <Button key={res["id"]} text={res["title"]} btnType="title" />;
       })}
-      <main>메인입니다</main>
+      메인입니다
+      {QuestionList.map((res) => {
+        return (
+          <Button key={res["id"]} text={res["answerList"]} btnType="choice" />
+        );
+      })}
     </>
   );
 }
