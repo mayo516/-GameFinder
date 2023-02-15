@@ -1,11 +1,11 @@
-import styles from "./page.module.css";
+import styles from "./page.module.scss";
 import Window from "../pages/window/Window";
 import Footer from "@/component/Footer";
 
 export default function Home() {
   return (
     <>
-      <div className={styles.div}>
+      <div className={styles.wrapper}>
         <Window />
         <Footer />
       </div>
