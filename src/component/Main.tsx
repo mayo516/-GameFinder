@@ -8,6 +8,9 @@ export default function Main() {
   return (
     <main>
       <Question />
+      <Question />
+      <Question />
+      <Question />
       메인입니다
     </main>
   );

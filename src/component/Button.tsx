@@ -4,11 +4,11 @@ import styles from "./Button.module.scss";
 export default function Button({
   text,
   btnType,
-  key,
-}: {
+}: // key,
+{
   text: string;
   btnType: string;
-  key: number;
+  // key: number;
 }) {
   return (
     <>
