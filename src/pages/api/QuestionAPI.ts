@@ -9,22 +9,52 @@ import type { NextApiRequest, NextApiResponse } from "next";
 // };
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
+  // res.status(200).json([
+  //   [{ "게임 분류 선택": ["고티수상작", "게임 전체 중에서"] }],
+  //   [
+  //     {
+  //       "Q. 선호 하는 장르 (중복 선택 가능)": [
+  //         "RPG",
+  //         "MMOPRG",
+  //         "액션",
+  //         "샌드박스",
+  //         "FPS",
+  //         "RTS",
+  //         "딱히 없음",
+  //       ],
+  //     },
+  //   ],
+  //   [{ "Q. 인생 게임이 있습니까?": ["Y", "N"] }],
+  //   [{ "Q. 좋아하는 게임을 입력하세요": undefined }],
+  // ]);
   res.status(200).json([
-    [{ "게임 분류 선택": ["고티수상작", "게임 전체 중에서"] }],
-    [
-      {
-        "Q. 선호 하는 장르 (중복 선택 가능)": [
-          "RPG",
-          "MMOPRG",
-          "액션",
-          "샌드박스",
-          "FPS",
-          "RTS",
-          "딱히 없음",
-        ],
-      },
-    ],
-    [{ "Q. 인생 게임이 있습니까?": ["Y", "N"] }],
-    [{ "Q. 좋아하는 게임을 입력하세요": undefined }],
+    {
+      id: 1,
+      title: "게임 분류 선택",
+      answerList: ["고티수상작", "게임 전체 중에서"],
+    },
+    {
+      id: 2,
+      title: "선호 하는 장르 (중복 선택 가능)",
+      answerList: [
+        "RPG",
+        "MMOPRG",
+        "액션",
+        "샌드박스",
+        "FPS",
+        "RTS",
+        "딱히 없음",
+      ],
+    },
+    {
+      id: 3,
+      title: "인생 게임이 있습니까?",
+      answerList: ["Y", "N"],
+    },
+    {
+      id: 4,
+      title: "좋아하는 게임을 입력하세요",
+      answerList: undefined,
+    },
   ]);
 }

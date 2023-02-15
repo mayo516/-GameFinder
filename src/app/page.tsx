@@ -6,7 +6,6 @@ export default function Home() {
   return (
     <>
       <div className={styles.div}>
-        {/* <Reset /> */}
         <Window />
         <Footer />
       </div>
