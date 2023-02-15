@@ -1,11 +1,49 @@
 import React from "react";
 import Button from "./Button";
+import { useEffect, useState } from "react";
 
-export default function Question() {
+const BtnMaker = () => {
+  const [QuestionList, setQuestionList] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:3000/api/QuestionAPI")
+      .then((type) => type.json())
+      .then((result) => {
+        setQuestionList(result);
+      });
+  }, []);
   return (
     <>
-      <Button text="제목" btnType="title" />
-      <Button text="보기" btnType="title" />
+      {QuestionList.map((res) => {
+        [res["answerList"]] &&
+          res["answerList"].map((innerEl: string, index: number) => {
+            <Button text={innerEl} btnType="choice" key={index} />;
+          });
+      })}
+    </>
+  );
+};
+
+export default function Question() {
+  const [QuestionList, setQuestionList] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/api/QuestionAPI")
+      .then((type) => type.json())
+      .then((result) => {
+        setQuestionList(result);
+      });
+  }, []);
+
+  return (
+    <>
+      {QuestionList.map((res) => {
+        return (
+          <>
+            <Button key={res["id"]} text={res["title"]} btnType="title" />
+            <BtnMaker />
+          </>
+        );
+      })}
     </>
   );
 }
