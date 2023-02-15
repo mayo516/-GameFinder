@@ -11,7 +11,6 @@ export default function Main() {
       <Question />
       <Question />
       <Question />
-      메인입니다
     </main>
   );
 }
