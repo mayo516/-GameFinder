@@ -2,13 +2,17 @@ import React from "react";
 import Button from "./Button";
 import { useEffect, useState } from "react";
 
-export default function Question() {
+export default function Question({ text, choiceText }) {
   return (
     <>
       <section>
-        <Button text="왕바보구하기" btnType="title" />
-        <Button text="김뿡냐바보" btnType="choice" />
-        <Button text="코코바보" btnType="choice" />
+        <Button text={text} btnType="title" />
+        {choiceText.map((res: string) => {
+          console.log(res);
+          return <Button text={res} btnType="choice" />;
+        })}
+        {/* <Button text="고티수상작" btnType="choice" />
+        <Button text="게임 전체 중에서" btnType="choice" /> */}
       </section>
     </>
   );
