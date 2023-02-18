@@ -3,10 +3,10 @@ import React from "react";
 import Button from "./Button";
 import { useEffect, useState } from "react";
 import Question from "./Question";
-
+import styles from "./Main.module.scss";
 export default function Main() {
   return (
-    <main>
+    <main className={styles.Wrapper}>
       <Question
         text={"게임분류선택"}
         choiceText={["고티수상작", "게임 전체 중에서"]}
@@ -25,7 +25,7 @@ export default function Main() {
       />
       <Question text={"인생 게임이 있습니까?"} choiceText={["Y", "N"]} />
       <Question text={"좋아하는 게임을 입력하세요"} choiceText={[]} />
-      <input />
+      <input className={styles.answerForm} />
     </main>
   );
 }

@@ -1,18 +1,22 @@
 import React from "react";
 import Button from "./Button";
 import { useEffect, useState } from "react";
+import styles from "./Question.module.scss";
 
 export default function Question({ text, choiceText }) {
   return (
     <>
-      <section>
-        <Button text={text} btnType="title" />
-        {choiceText.map((res: string) => {
-          console.log(res);
-          return <Button text={res} btnType="choice" />;
-        })}
-        {/* <Button text="고티수상작" btnType="choice" />
-        <Button text="게임 전체 중에서" btnType="choice" /> */}
+      <section className={styles.flexWrapper}>
+        <div>
+          {" "}
+          <Button text={text} btnType="title" />
+        </div>
+        <div>
+          {" "}
+          {choiceText.map((res: string) => {
+            return <Button text={res} btnType="choice" />;
+          })}
+        </div>
       </section>
     </>
   );
