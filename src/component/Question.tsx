@@ -9,12 +9,12 @@ export default function Question({ text, choiceText }) {
       <section className={styles.flexWrapper}>
         <div>
           {" "}
-          <Button text={text} btnType="title" />
+          <Button text={text} btnType="title" index={text} />
         </div>
         <div>
           {" "}
-          {choiceText.map((res: string) => {
-            return <Button text={res} btnType="choice" />;
+          {choiceText.map((res: string, idx: string) => {
+            return <Button text={res} btnType="choice" idx={idx} />;
           })}
         </div>
       </section>
