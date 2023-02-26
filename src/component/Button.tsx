@@ -1,4 +1,5 @@
 import React from "react";
+import { MouseEvent } from "react";
 import styles from "./Button.module.scss";
 import { useEffect, useState } from "react";
 import {
@@ -9,7 +10,9 @@ import {
   useRecoilValue,
   RecoilEnv,
 } from "recoil";
-// RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false;
+
+RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false;
+
 export default function Button({
   text,
   btnType,
@@ -24,19 +27,28 @@ export default function Button({
 }) {
   const btnValueState = atom({
     key: "btnValueState", // unique ID (with respect to other atoms/selectors)
-    default: "", // default value (aka initial value)
+    default: [""], // default value (aka initial value)
   });
   const [btnActive, setBtnActive] = useState("");
   const [btnValue, setBtnValue] = useRecoilState(btnValueState);
 
   const buttonHandler = () => {
-    setBtnActive(idx);
+    btnActive !== "" ? setBtnActive("") : setBtnActive(idx);
+    console.log(btnActive);
   };
 
-  const buttonClickHandler = (e: string) => {
-    setBtnValue([...btnValue, e.target.value]);
+  const buttonClickHandler = (e: CustomMouseEvent) => {
+    const target = e.currentTarget;
+    if (btnActive !== "") {
+      setBtnValue([...btnValue, target.innerText]);
+    } else {
+      setBtnValue(btnValue.filter((e) => e !== target.innerText));
+    }
+
     console.log(btnValue);
   };
+
+  type CustomMouseEvent = MouseEvent<HTMLElement>;
 
   return (
     <>
