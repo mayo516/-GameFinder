@@ -29,26 +29,39 @@ export default function Button({
     key: "btnValueState", // unique ID (with respect to other atoms/selectors)
     default: [""], // default value (aka initial value)
   });
+
+  type CustomMouseEvent = MouseEvent<HTMLElement>;
   const [btnActive, setBtnActive] = useState("");
   const [btnValue, setBtnValue] = useRecoilState(btnValueState);
 
-  const buttonHandler = () => {
-    btnActive !== "" ? setBtnActive("") : setBtnActive(idx);
-    console.log(btnActive);
-  };
+  // useEffect(() => {
+  //   buttonClickHandler();
+  // }, [btnActive]);
 
-  const buttonClickHandler = (e: CustomMouseEvent) => {
+  const buttonHandler = (e) => {
     const target = e.currentTarget;
-    if (btnActive !== "") {
+    if (btnActive === "") {
+      setBtnActive(idx);
       setBtnValue([...btnValue, target.innerText]);
     } else {
+      setBtnActive("");
       setBtnValue(btnValue.filter((e) => e !== target.innerText));
     }
 
+    console.log(btnActive);
     console.log(btnValue);
   };
 
-  type CustomMouseEvent = MouseEvent<HTMLElement>;
+  // const buttonClickHandler = () => {
+  //   const target = e.currentTarget;
+  //   if (btnActive !== "") {
+  //     setBtnValue([...btnValue, target.innerText]);
+  //   } else {
+  //     setBtnValue(btnValue.filter((e) => e !== target.innerText));
+  //   }
+
+  //   console.log(btnValue);
+  // };
 
   return (
     <>
@@ -58,9 +71,7 @@ export default function Button({
         <button
           className={idx === btnActive ? styles.choiceActive : styles.choice}
           onClick={(e) => {
-            buttonHandler();
-            buttonClickHandler(e);
-            // console.log(e.target.innerText);
+            buttonHandler(e);
           }}
         >
           {text}
