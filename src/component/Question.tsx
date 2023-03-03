@@ -5,6 +5,7 @@ import styles from "./Question.module.scss";
 
 export default function Question({ text, choiceText, duplication }) {
   const [isSelected, setIsSelect] = useState(false);
+
   const handleClick = (idx: number) => {
     const newArr: boolean[] = Array(choiceText.length).fill(false);
     newArr[idx] = true;
