@@ -3,7 +3,14 @@ import Button from "./Button";
 import { useEffect, useState } from "react";
 import styles from "./Question.module.scss";
 
-export default function Question({ text, choiceText }) {
+export default function Question({ text, choiceText, duplication }) {
+  const [isSelected, setIsSelect] = useState(false);
+  const handleClick = (idx: number) => {
+    const newArr: boolean[] = Array(choiceText.length).fill(false);
+    newArr[idx] = true;
+    setIsSelect(newArr);
+  };
+
   return (
     <>
       <section className={styles.flexWrapper}>
@@ -13,8 +20,18 @@ export default function Question({ text, choiceText }) {
         </div>
         <div>
           {" "}
-          {choiceText.map((res: string, idx: string) => {
-            return <Button text={res} btnType="choice" idx={idx} />;
+          {choiceText.map((res: string, idx: number) => {
+            return (
+              <Button
+                key={idx}
+                text={res}
+                btnType="choice"
+                idx={idx.toString()}
+                isSelectedContnet={isSelected[idx]}
+                handleClick={handleClick}
+                duplication={duplication}
+              />
+            );
           })}
         </div>
       </section>

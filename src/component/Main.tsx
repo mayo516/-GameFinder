@@ -22,6 +22,7 @@ export default function Main() {
           "RTS",
           "딱히 없음",
         ]}
+        duplication={true}
       />
       <Question text={"인생 게임이 있습니까?"} choiceText={["Y", "N"]} />
       <Question text={"좋아하는 게임을 입력하세요"} choiceText={[]} />

@@ -17,11 +17,16 @@ export default function Button({
   text,
   btnType,
   idx,
+  isSelectedContnet,
+  handleClick,
+  duplication,
 }: // key,
 {
   text: string;
   btnType: string;
   idx: string;
+  isSelectedContnet: boolean;
+  duplication: boolean;
 
   // key: number;
 }) {
@@ -34,43 +39,41 @@ export default function Button({
   const [btnActive, setBtnActive] = useState("");
   const [btnValue, setBtnValue] = useRecoilState(btnValueState);
 
-  // useEffect(() => {
-  //   buttonClickHandler();
-  // }, [btnActive]);
-
+  // console.log(btnValue);
   const buttonHandler = (e) => {
     const target = e.currentTarget;
-    if (btnActive === "") {
+    if (btnActive !== idx) {
       setBtnActive(idx);
       setBtnValue([...btnValue, target.innerText]);
     } else {
       setBtnActive("");
       setBtnValue(btnValue.filter((e) => e !== target.innerText));
     }
-
-    console.log(btnActive);
-    console.log(btnValue);
   };
-
-  // const buttonClickHandler = () => {
-  //   const target = e.currentTarget;
-  //   if (btnActive !== "") {
-  //     setBtnValue([...btnValue, target.innerText]);
-  //   } else {
-  //     setBtnValue(btnValue.filter((e) => e !== target.innerText));
-  //   }
-
-  //   console.log(btnValue);
-  // };
-
+  // console.log(btnValue);
   return (
     <>
       {btnType === "title" ? (
         <button className={styles.title}>{text}</button>
+      ) : duplication === true ? (
+        <>
+          <button
+            className={btnActive === idx ? styles.choiceActive : styles.choice}
+            onClick={(e) => {
+              handleClick(idx);
+              buttonHandler(e);
+            }}
+          >
+            {text}
+          </button>
+        </>
       ) : (
         <button
-          className={idx === btnActive ? styles.choiceActive : styles.choice}
+          className={
+            isSelectedContnet === true ? styles.choiceActive : styles.choice
+          }
           onClick={(e) => {
+            handleClick(idx);
             buttonHandler(e);
           }}
         >
