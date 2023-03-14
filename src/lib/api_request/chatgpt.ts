@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const handleSubmit = (e) => {
+const handleSubmit = (postContent) => {
   e.preventDefault();
   let prompt = "Hi!";
   // Send a request to the server with the prompt

@@ -12,7 +12,10 @@ import {
 } from "recoil";
 
 RecoilEnv.RECOIL_DUPLICATE_ATOM_KEY_CHECKING_ENABLED = false;
-
+export const btnValueState = atom({
+  key: "btnValueState", // unique ID (with respect to other atoms/selectors)
+  default: [""], // default value (aka initial value)
+});
 export default function Button({
   text,
   btnType,
@@ -30,11 +33,6 @@ export default function Button({
 
   // key: number;
 }) {
-  const btnValueState = atom({
-    key: "btnValueState", // unique ID (with respect to other atoms/selectors)
-    default: [""], // default value (aka initial value)
-  });
-
   type CustomMouseEvent = MouseEvent<HTMLElement>;
   const [btnActive, setBtnActive] = useState("");
   const [btnValue, setBtnValue] = useRecoilState(btnValueState);
