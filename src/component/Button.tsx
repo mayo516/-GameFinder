@@ -57,8 +57,7 @@ export default function Button({
 
     const target = e.currentTarget;
     const className = e.target.classname;
-    console.log(isSelectedContnet);
-    console.log(idx);
+
     if (isSelectedContnet !== idx) {
       setBtnActive(idx);
       const arr = [...btnValue];
@@ -93,7 +92,7 @@ export default function Button({
       setBtnValue(btnValue.filter((e) => e !== target.innerText));
     }
   };
-  console.log(btnValue);
+  // console.log(btnValue);
   return (
     <>
       {btnType === "title" ? (
