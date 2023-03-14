@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Button from "./Button";
+import NextBtn from "./NextBtn";
 import { useEffect, useState } from "react";
 import Question from "./Question";
 import styles from "./Main.module.scss";
@@ -27,6 +28,7 @@ export default function Main() {
       <Question text={"인생 게임이 있습니까?"} choiceText={["Y", "N"]} />
       <Question text={"좋아하는 게임을 입력하세요"} choiceText={[]} />
       <input className={styles.answerForm} />
+      <NextBtn />
     </main>
   );
 }

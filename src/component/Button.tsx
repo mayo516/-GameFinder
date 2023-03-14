@@ -40,11 +40,36 @@ export default function Button({
   const [btnValue, setBtnValue] = useRecoilState(btnValueState);
 
   const buttonHandler = (e, idx) => {
+    type ObjType = {
+      [index: string]: string;
+      고티수상작: string;
+      "게임 전체 중에서": string;
+      Y: string;
+      N: string;
+    };
+
+    const filterGuide: ObjType = {
+      고티수상작: "게임 전체 중에서",
+      "게임 전체 중에서": "고티수상작",
+      Y: "N",
+      N: "Y",
+    };
+
     const target = e.currentTarget;
     const className = e.target.classname;
+    console.log(isSelectedContnet);
+    console.log(idx);
     if (isSelectedContnet !== idx) {
       setBtnActive(idx);
-      setBtnValue([...btnValue, target.innerText]);
+      const arr = [...btnValue];
+      const key = target.innerText;
+      setBtnValue([
+        ...arr.filter((e) => e !== filterGuide[key]),
+        target.innerText,
+      ]);
+      // console.log(target.innerText);
+      // setBtnValue([...btnValue, target.innerText]);
+      //중복값 허용이 아닌 경우 기존의 값이 사라져야 하는데 그게 구현되어 있지 않아서 문제 발생
     } else {
       setBtnActive("");
       setBtnValue(btnValue.filter((e) => e !== target.innerText));
@@ -94,7 +119,7 @@ export default function Button({
           }
           onClick={(e) => {
             handleClick(idx, e);
-            buttonHandler(e);
+            buttonHandler(e, idx);
           }}
         >
           {text}
