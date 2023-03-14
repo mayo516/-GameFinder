@@ -1,0 +1,12 @@
+.wrapper {
+  border-width: 3px;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  border-style: solid;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1px;
+  text-align: center;
+  background-color: #c0c0c0;
+}/*# sourceMappingURL=page.module.css.map */

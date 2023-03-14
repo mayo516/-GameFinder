@@ -1,0 +1,28 @@
+.title {
+  background-color: blue;
+  color: #ffffff;
+  cursor: pointer;
+  border: 0px;
+  font-size: 15px;
+}
+
+.choice {
+  background-color: #c0c0c0;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  padding: 4px 10px;
+  margin: 5px auto 5px;
+}
+
+.choiceActive {
+  background-color: #2f6645;
+  color: #ffffff;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  padding: 4px 10px;
+  margin: 5px auto 5px;
+}/*# sourceMappingURL=Button.module.css.map */

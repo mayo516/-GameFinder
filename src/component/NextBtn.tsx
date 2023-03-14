@@ -14,7 +14,10 @@ export default function NextBtn() {
     const postContent: string =
       btnValue.join("이고").substr(2) + "인 게임 중에서 추천해줘 ";
     console.log(postContent);
-    handleSubmit(postContent);
+    handleSubmit(postContent).then((res) => {
+      console.log(res);
+    });
+
     console.log(btnValue);
   }
 

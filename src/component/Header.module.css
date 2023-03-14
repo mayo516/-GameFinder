@@ -1,0 +1,40 @@
+.container {
+  background-color: #000080;
+  color: #ffffff;
+  display: flex;
+  padding: 3px;
+  justify-content: space-between;
+  font-size: 9px;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn {
+  float: right;
+  margin: 2px 2px 2px 0;
+  width: 14px;
+  height: 13.5px;
+  background-color: #c0c0c0;
+  font-weight: bold;
+  padding: 0;
+  font-size: 9px;
+  border-color: #ffffff #808080 #808080 #ffffff;
+  border-width: 1px;
+  font-size: 9px;
+  font-weight: bold;
+  font-family: Tahoma;
+  text-align: center;
+}
+
+.programName {
+  position: relative;
+  right: 45px;
+  top: 3px;
+  font-weight: bold;
+}
+
+.favi {
+  border: 1px solid #ffffff;
+}/*# sourceMappingURL=Header.module.css.map */
