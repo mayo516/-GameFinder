@@ -1,5 +1,6 @@
 .Wrapper {
   padding: 20px;
+  min-width: 30vw;
 }
 
 .answerForm {

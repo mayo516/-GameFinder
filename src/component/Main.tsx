@@ -48,7 +48,8 @@ export default function Main() {
     );
   } else {
     return (
-      <main>
+      <main className={styles.Wrapper}>
+        <h2>다음 게임을 추천합니다!</h2>
         <p>{answer}</p>
       </main>
     );
