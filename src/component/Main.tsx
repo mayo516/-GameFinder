@@ -18,8 +18,8 @@ export const answerState = atom({
 });
 export default function Main() {
   // const [answer, setAnswer] = useState(undefined);
-  const [answer, setAnswer] = useRecoilState(answerState);
-
+  const [answer, setAnswer] = useState(undefined);
+  console.log(answer);
   if (answer === undefined) {
     return (
       <main className={styles.Wrapper}>
@@ -43,12 +43,14 @@ export default function Main() {
         <Question text={"인생 게임이 있습니까?"} choiceText={["Y", "N"]} />
         <Question text={"좋아하는 게임을 입력하세요"} choiceText={[]} />
         <input className={styles.answerForm} />
-        <NextBtn />
+        <NextBtn setAnswer={setAnswer} />
       </main>
     );
   } else {
-    <main>
-      <p>{answer}</p>
-    </main>;
+    return (
+      <main>
+        <p>{answer}</p>
+      </main>
+    );
   }
 }
