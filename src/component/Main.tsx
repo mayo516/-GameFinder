@@ -17,9 +17,8 @@ export const answerState = atom({
   default: undefined, // default value (aka initial value)
 });
 export default function Main() {
-  // const [answer, setAnswer] = useState(undefined);
   const [answer, setAnswer] = useState(undefined);
-  console.log(answer);
+
   if (answer === undefined) {
     return (
       <main className={styles.Wrapper}>
