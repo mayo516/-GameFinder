@@ -1,38 +1,68 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 게임 파인더 :: 게이머들을 위한 솔루션
 
-## Getting Started
+## 서비스 소개
 
-First, run the development server:
+GameFinder는 게임을 좋아하는 사람들이 할 게임이 없어 고민하는 문제를 해결하자! 라는 아이디어에서 시작한 프로젝트 입니다.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+- 자신의 취향에 맞게 게임을 추천 받을 수 있습니다.
+- ChatGPT를 활용해서 서비스를 구현했습니다.
+
+## 개발 기간
+
+기능 구현과 스타일링 : 2/8 ~ 3/31
+
+리팩토링 : 진행중
+
+## 프로젝트 목표
+
+1. nextjs로 SSR을 통한 SEO향상
+2. 타입스크립트를 실전에서 사용하면서 배우기
+
+## 개발 환경
+
+- 개발 :
+  FE : Next.js / Sass /TypeScript
+  BE : Node.js /Express.js /ChatGPT
+
+## 기능 시연
+
+[시퀀스 01.mp4](%E1%84%80%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%B7%20%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%83%E1%85%A5%20%E1%84%80%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%86%E1%85%A5%E1%84%83%E1%85%B3%E1%86%AF%E1%84%8B%E1%85%B3%E1%86%AF%20%E1%84%8B%E1%85%B1%E1%84%92%E1%85%A1%E1%86%AB%20%E1%84%89%E1%85%A9%E1%86%AF%E1%84%85%E1%85%AE%E1%84%89%E1%85%A7%E1%86%AB%20a878ee1abbcd47d28762beb8a16fd88e/%25EC%258B%259C%25ED%2580%2580%25EC%258A%25A4_01.mp4)
+
+## 개발 이야기
+
+- Typescript 사용기
+
+[TypeScript에서 객체에서 Key로 String을 쓰지 못하는 이유 ( String과 String Literal )](https://devwater.tistory.com/38)
+
+- meta 태그
+
+```jsx
+export default function Head() {
+  return (
+    <>
+      <title>게임파인더 GAME FINDER</title>
+      <meta content="width=device-width, initial-scale=1" name="viewport" />
+      <meta
+        name="description"
+        content="게임 취향을 반영해서 게임을 추천해주는 사이트. 여러분이 좋아할만한 게임을 찾아드립니다. "
+      />
+      <link rel="icon" href="/favicon.ico" />
+      <meta property="og:title" content="게임파인더: GAME FINDER " />
+      <meta property="og:type" content="컨텐츠 타입" />
+      <meta property="og:url" content="페이지 주소" />
+      <meta property="og:image" content="페이지 썸네일 이미지 주소" />
+      <meta
+        property="og:description"
+        content="게임 취향을 반영해서 게임을 추천해주는 사이트. 여러분이 좋아할만한 게임을 찾아드립니다."
+      />
+      <meta name="twitter:card" content="Summary Card" />
+      <meta name="twitter:title" content="게임파인더: GAME FINDER" />
+      <meta
+        name="twitter:description"
+        content="게임 취향을 반영해서 게임을 추천해주는 사이트. 여러분이 좋아할만한 게임을 찾아드립니다."
+      />
+      <meta name="twitter:image" content="카드 썸네일 이미지 주소" />
+    </>
+  );
+}
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
